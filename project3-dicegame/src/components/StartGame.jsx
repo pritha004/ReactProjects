@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components';
 
 
-const StartGame = ({toggleGamePlay}) => {
+const StartGame = ({ toggleGamePlay }) => {
     return (
         <Container>
-            <img src="./images/dices.png" style={{width:'50%', height:'auto'}} />
-            <div style={{padding:'2rem'}}>
-                <h1  style={{textAlign:'center',fontSize:'3rem',whiteSpace:'nowrap'}}>Dice Game</h1>
+            <img src="./images/dices.png" style={{ width: '50%', height: 'auto' }} />
+            <div style={{ padding: '2rem' }}>
+                <h1 style={{ textAlign: 'center', fontSize: '3rem', whiteSpace: 'nowrap' }}>Dice Game</h1>
                 <Button onClick={toggleGamePlay}>Play Now</Button>
             </div>
         </Container>

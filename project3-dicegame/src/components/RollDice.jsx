@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const RollDice = ({currentDice,rollDice}) => {
+const RollDice = ({ currentDice, rollDice }) => {
 
 
     return (

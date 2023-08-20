@@ -3,13 +3,14 @@ import styled from 'styled-components'
 const Rules = () => {
   return (
     <RulesContainer>
-        <h2>How to play dice game</h2>
-        <ul className="text">
-            <li>Select any number</li>
-            <li>Click on the dice</li>
-            <li>If selected number is equal to the number on dice, you get same points as the dice number.</li>
-            <li>If you get wrong guess, 1 point will be deducted</li>
-        </ul>
+      <h2>How to play dice game</h2>
+      <ul className="text">
+        <li>Select any number</li>
+        <li>Click on the dice</li>
+        <li>If selected number is equal to the number on dice, you get same points as the dice number.</li>
+        <li>If you get wrong guess, 1 point will be deducted</li>
+        <li>When score is equal to 10, you win!!</li>
+      </ul>
     </RulesContainer>
   )
 }
@@ -17,7 +18,7 @@ const Rules = () => {
 export default Rules
 
 
-const RulesContainer=styled.div`
+const RulesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;

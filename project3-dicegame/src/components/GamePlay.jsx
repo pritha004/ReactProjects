@@ -8,54 +8,54 @@ import Rules from './Rules'
 const GamePlay = () => {
     const [selectedNumber, setSelectedNumber] = useState();
     const [currentDice, setCurrentDice] = useState(1);
-    const [score,setScore]=useState(0);
-    const [error,setError]=useState("");
-    const [showRules,setShowRules]=useState(false);
+    const [score, setScore] = useState(0);
+    const [error, setError] = useState("");
+    const [showRules, setShowRules] = useState(false);
 
     const generateRandomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    const rollDice=()=>{
-        if(!selectedNumber)
-        {
+    const rollDice = () => {
+        if (!selectedNumber) {
             setError("You have not selected any number")
             return;
         }
-        
-        const randomNumber=generateRandomNumber(1,7);
+
+        const randomNumber = generateRandomNumber(1, 7);
         setCurrentDice(randomNumber);
 
 
-        if(selectedNumber===randomNumber)
-        {
-            setScore((prev=>prev+randomNumber))
-        }else
-        {
-            setScore((prev=>prev-1))
+        if (selectedNumber === randomNumber) {
+            setScore((prev => prev + randomNumber))
+        } else {
+            setScore((prev => prev - 1))
         }
+
+        if (score === 5)
+            setWin(true);
         setSelectedNumber(undefined);
     }
 
-  return (
-    <MainContainer>
-        <div className='top-container'>
-        <TotalScore score={score}/>
-        <NumberSelector selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} error={error} setError={setError}/>
-        </div>
-        <RollDice currentDice={currentDice} rollDice={rollDice} />
-        <div className='btns'>
-            <OutlineButton onClick={()=>{setScore(0);setError("")}}>Reset Score</OutlineButton>
-            <Button onClick={()=>setShowRules(!showRules)}>{showRules?"Hide":"Show"} Rules</Button>
-        </div>
-        {showRules && <Rules/>}
-    </MainContainer>
-  )
+    return (
+        <MainContainer>
+            <div className='top-container'>
+                <TotalScore score={score} />
+                <NumberSelector selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} error={error} setError={setError} />
+            </div>
+            <RollDice currentDice={currentDice} rollDice={rollDice} />
+            <div className='btns'>
+                <OutlineButton onClick={() => { setScore(0); setError("") }}>Reset Score</OutlineButton>
+                <Button onClick={() => setShowRules(!showRules)}>{showRules ? "Hide" : "Show"} Rules</Button>
+            </div>
+            {showRules && <Rules />}
+        </MainContainer>
+    )
 }
 
 export default GamePlay
 
-const MainContainer=styled.main`
+const MainContainer = styled.main`
     padding-top: 1rem;
 
     .btns{
@@ -108,7 +108,7 @@ const Button = styled.button`
     }
 `;
 
-const OutlineButton=styled(Button)`
+const OutlineButton = styled(Button)`
     color: black;
     background-color: white;
     border:2px solid black;
