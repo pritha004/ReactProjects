@@ -21,7 +21,7 @@ const DiceContainer = styled.div`
     align-items: center;
     justify-content: center;
     /* border: 1px solid green; */
-    padding: 2rem 0;
+    padding: 1.8rem 0;
     div{
         height: 10rem;
         width: 10rem;
