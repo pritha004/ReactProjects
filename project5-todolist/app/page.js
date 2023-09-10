@@ -23,6 +23,14 @@ const page = () => {
     setTasks(copyTask);
   };
 
+  const completedHandler=(index)=>{
+    let copyTask = [...tasks];
+    let t=copyTask[index];
+    let copyt={...t, completed:true}
+    copyTask.splice(index,1,copyt)
+    setTasks(copyTask);
+  }
+
   let renderTask = <h2>No task avaialable</h2>;
 
   if (tasks.length > 0) {
@@ -33,13 +41,22 @@ const page = () => {
             <h5 className="text-2xl font-semibold">{task.title}</h5>
             <p className="text-lg font-semibold text-slate-800">{task.desc}</p>
           </div>
-
-          <button
+          {task.completed?<button
+            className="bg-green-400 text-white rounded px-4 py-2 "
+          >
+            Completed
+          </button>:<button
+            className="bg-orange-300 text-white rounded px-4 py-2 "
+            onClick={() => completedHandler(index)}
+          >
+            Complete
+          </button>}
+          {task.completed || <button
             className="bg-red-400 text-white rounded px-4 py-2 "
             onClick={() => deleteHandler(index)}
           >
             Delete
-          </button>
+          </button>}
         </li>
       );
     });
