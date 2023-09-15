@@ -10,4 +10,4 @@ const Win = () => {
 
 export default Win
 
-//Try to Create a modal to show win when score is 10.
+//ToDo: Try to Create a modal to show win when score is 10.
